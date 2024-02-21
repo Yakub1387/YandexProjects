@@ -2,7 +2,7 @@
 import time
 
 
-def otstup():
+def indent():
     print('\n' + 'Ожидание...')
     time.sleep(5)
     print('\n' * 5)
@@ -23,13 +23,13 @@ def gg(a):
     else: print('К сожалению, вы проиграли... ☠☠☠')
 
 
-def gr(a):
+def step(a):
     try:
-        print(f"последни{chasy(a)}...")
-        otstup()
+        print(f"последни{hours(a)}...")
+        indent()
     except TypeError and ValueError:
         print(f"{end}Пожалуйста, введите число - количество часов\n")
-        return gr(close(input(f'Сколько часов вы уже находитесь в лесу?\n')))
+        return step(close(input(f'Сколько часов вы уже находитесь в лесу?\n')))
 
 
 def check(g, a):
@@ -39,7 +39,7 @@ def check(g, a):
     return g
 
 
-def chasy(a):
+def hours(a):
     if int(a) % 100 in [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]:
         return 'е ' + a + " часов"
     elif int(a) % 10 == 1:
@@ -59,17 +59,17 @@ print(f"""
 -------------------------------{'-' * len(name)}-
 
 """)
-otstup()
+indent()
 print(f"{end}Вы бредете по непроглядному ельнику уже последние... \n")
 in_form = close(input(f'Сколько часов вы уже находитесь в лесу?\n'))
-gr(in_form)
+step(in_form)
 print(f"{end}Перед вами выбор:"
       f"\n"
       f"    1. Дожидаться спасателей\n"
       f"    2. Пытаться найти кров и пропитание в безлюдном лесу\n"
       f"    3. Пинать пни\n")
 in_form = check(close(input(f'Ваш выбор(1, 2 или 3): \n')), ('1', '2', '3'))
-otstup()
+indent()
 if in_form == '1':
     print(f'{end}Спасатели прибыли, и по выходу их из затонированных машин, вы замечаете, '
           f'что они имели при себе разного рода оружие, и выглядели, как вам показалось, крайне недоброжелательно...\n')
@@ -79,7 +79,7 @@ if in_form == '1':
           f'    2. Отсидеться - они не внушают доверия\n'
           f'    3. Пинать пни\n')
     in_form = check(close(input(f'Ваш выбор(1, 2 или 3): \n')), ('1', '2', '3'))
-    otstup()
+    indent()
     if in_form == '1':
         print(f"Вы поступили правильно: спасателей сопровождал конвой, так как в лесах засели браконьеры\n")
         gg(1)
